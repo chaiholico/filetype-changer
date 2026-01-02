@@ -1,0 +1,45 @@
+#!/bin/bash
+echo "Starting the script..."
+newext="mpg"
+search="."
+index=0
+char=""
+
+base=""
+exten=""
+found=0
+
+for file in "$1"/*; do
+    if [[ -f "$file" ]]; then
+        echo "Processing file: $file"
+        fullbase=$(basename "$file")
+        echo "$fullbase"
+        fullbase_length=${#fullbase}
+        found=0
+        base=""
+        exten=""
+            for ((i=0; i< fullbase_length; i++)); do
+            char="${fullbase:i:1}"
+            if [[ "$found" == 0 && "$char" == "$search" ]]; then
+                found=1
+            fi
+            if [[ "$found" == 1 ]]; then
+                exten=$exten"$char"
+            else
+                base=$base"$char"
+            fi
+        done
+    echo "The base variable: $base"
+    echo "The extension variable: $exten"
+
+        if [[ "$exten" == ".mod" ]]; then
+            mv "$file" "$1/$base.$newext"
+            echo "Renamed $file to $1/$base.$newext"
+        else 
+            echo "file is not of type 'mod', skipping rename."
+        fi
+        
+    else
+        echo " $file is not a valid file."
+    fi
+done
