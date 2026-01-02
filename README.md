@@ -1,0 +1,2 @@
+u can change the file type by modifying 'newext'... and then run this script to change the file type of files in a folder you upload!! 
+(literally 3 lines of code i was tryna do a intro to bash tutorial)
