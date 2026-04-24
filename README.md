@@ -1,5 +1,5 @@
 overview:
-here are my final and draft versions of the first 'project' i did in bash. the goal is to modify file extensions in a folder.
+here are my final and draft versions of the first really simple 'project' i did in bash. the goal is to modify file extensions in a folder. i finally finished it up and i'm using it on my parents' old computer lol
 
 #version 1 : rename.sh
 this one is the draft...doesn't rlly work.
